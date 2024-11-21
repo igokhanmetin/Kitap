@@ -13,6 +13,8 @@ namespace Kitapci.Controllers
         public KategoriController(IKategoriRepository context)
         {
             _kategorirepo = context;
+            //ne var burada
+            lnk
         }
 
         public IActionResult Index()
