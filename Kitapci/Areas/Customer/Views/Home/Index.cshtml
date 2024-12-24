@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Kitap>
+
+<div class="row pb-3">
+    @foreach (var kitap in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="row p-1">
+                    <div class="card border-0 p-3 shadow border-top border-5 rounded">
+                        <img src="@kitap.ImageUrl" class="card-img-top rounded" />
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@kitap.Baslik</p>
+                                <p class="card-title text-warning text-center">Yazar <b>@kitap.Yazar</b></p>
+                            </div> 
+                            <div class="pl-1">
+                                <p class="text-dark text-opacity-75 text-center mb-0">
+                                    Liste Fiyatı:
+                                    <span class="text-decoration-line-through">
+                                        @kitap.ListeFiyati.ToString("c")
+                                    </span>
+                                </p>
+                            </div> 
+                            <div class="pl-1">
+                                <p class="text-dark text-opacity-75 text-center">
+                                    İndirimli Fiyat:
+                                    <span>
+                                        @kitap.Fiyat50.ToString("c")
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <a asp-action="Details"
+                             asp-route-kitapId="@kitap.Id"
+                                class="btn btn-primary bg-gradient border-0 form-control">
+                                Detaylar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

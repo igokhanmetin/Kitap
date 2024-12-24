@@ -1,0 +1,39 @@
+﻿@page
+@model KitapciRazor.Pages.Kategoriler.EditModel
+
+<form method="post">
+    <input asp-for="Kategori.Id" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Kategori Düzenle</h2>
+            <hr />
+        </div>
+        @*  <div asp-validation-summary="ModelOnly"></div> *@
+        <div class="mb-3 row p-1">
+            <label asp-for="Kategori.Ad"></label>
+            <input asp-for="Kategori.Ad" class="form-control" />
+            <span asp-validation-for="Kategori.Ad" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Kategori.DisplayOrder"></label>
+            <input asp-for="Kategori.DisplayOrder" class="form-control" />
+            <span asp-validation-for="Kategori.DisplayOrder" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button type="submit" class="btn btn-primary form-control">Düzenle</button>
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-page="/Kategori/index"  class="btn btn-secondary form-control">
+                    Listeye Geri Dön
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
